@@ -30,6 +30,21 @@ namespace SecretSanta.Web.Controllers
             return View(vModel);
         }
 
-        
+        public IActionResult Edit(int id)
+        {
+            Users[id].Id = id;
+            return View(Users[id]);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(UserViewModel vModel)
+        {
+            if(ModelState.IsValid)
+            {
+                Users[vModel.Id] = vModel;
+                return RedirectToAction(nameof(Index));
+            }
+            return View(vModel);
+        }
     }
 }

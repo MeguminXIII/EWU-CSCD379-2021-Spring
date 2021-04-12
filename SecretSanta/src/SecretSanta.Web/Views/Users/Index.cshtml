@@ -1,9 +1,13 @@
 <p>This is the Users page</p>
 @model List<UserViewModel>
+
+@{int counter = 0;}
 @foreach(UserViewModel user in Model)
 {
     <section>
-        @user.FirstName @user.LastName
+        <!-- cal:the asp-route... means the ... part is the value were assigning-->
+        @user.FirstName @user.LastName<a asp-controller="Users" asp-action="Edit" asp-route-id=@counter> Edit</a>
+        @{counter++;}
     </section>
 }
 <a asp-asp-asp-controller="Users" asp-action="Create">Create a New User</a>
