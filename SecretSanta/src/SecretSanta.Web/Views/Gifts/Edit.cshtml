@@ -1,0 +1,27 @@
+@model GiftViewModel
+
+<form asp-controller="Gifts" asp-action="Update" method="post">
+    <div>
+        <label asp-for="GiftName"></label>: <input type="text" asp-for="GiftName" />
+        <span asp-validation-for="GiftName"></span>
+    </div>
+    <div>
+        <label asp-for="GiftDescription"></label>: <input type="text" asp-for="GiftDescription" />
+        <span asp-validation-for="GiftDescription"></span>
+    </div>
+    <div>
+        <label asp-for="GiftUrl"></label>: <input type="text" asp-for="GiftUrl" />
+        <span asp-validation-for="GiftUrl"></span>
+    </div>
+   <div>
+        <label asp-for="GiftUser"></label>: <input type="text" asp-for="GiftUser"/>
+        <select asp-validation-for="GiftUser" asp-items="A(new SelectList(SecretSanta.Web.Data.MockData.Users, "Id", "FullName"))">
+            <option>Please select one</option>
+        </select>
+    </div>
+    <div>
+        <label asp-for="GiftPriority"></label>: <input type="text" asp-for="GiftPriority"/>
+        <span asp-validation-="GiftPriority"></span>
+    </div>
+    <button>Save</button>
+</form> 

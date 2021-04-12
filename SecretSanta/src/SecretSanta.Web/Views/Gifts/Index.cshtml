@@ -1,0 +1,28 @@
+@model List<UserViewModel>
+
+@{
+    ViewBag.Title = "Gifts";
+}
+
+@{int counter = 0;}
+<section>
+    @{counter++;}
+    @foreach (var user in Model)
+    {
+    
+            <li>@user.FullName</li><br>
+            @if(user.Gifts != null){
+                <ul>
+                    @foreach(var Gift in user.Gifts){
+                        @Gift.GiftName
+                        @Gift.GiftDescription
+                        @Gift.GiftURL
+                        @Gift.GiftPriority
+                        @Gift.GiftUser <a asp-controller="Gifts" asp-action="Edit" asp-route-id=@counter>Edit</a>
+                        <form asp-controller="Gifts" asp-action="Delete" method="post" as-route-id=@counter><button>Delete</button></form>
+                    }
+                </ul>
+            }        
+    }
+</section>
+<a asp-controller="Gifts" asp-action="Create">Create</a>
