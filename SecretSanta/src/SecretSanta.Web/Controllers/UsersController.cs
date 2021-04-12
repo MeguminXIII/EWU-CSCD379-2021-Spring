@@ -46,5 +46,11 @@ namespace SecretSanta.Web.Controllers
             }
             return View(vModel);
         }
+
+        public IActionResult Delete(int id)
+        {
+            Users.RemoveAt(id);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
