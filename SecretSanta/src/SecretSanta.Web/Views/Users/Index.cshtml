@@ -1,1 +1,9 @@
 <p>This is the Users page</p>
+@model List<UserViewModel>
+@foreach(UserViewModel user in Model)
+{
+    <section>
+        @user.FirstName @user.LastName
+    </section>
+}
+<a asp-asp-asp-controller="Users" asp-action="Create">Create a New User</a>
