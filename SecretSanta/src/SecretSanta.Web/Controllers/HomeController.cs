@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace UserGroup.Web.Controllers
+namespace SecretSanta.Web.Controllers
 {
     public class HomeController : Controller
     {
@@ -9,10 +9,12 @@ namespace UserGroup.Web.Controllers
             return View();
         }
 
+        /*
         public IActionResult Page()
         {
             return View();
         }
+        */
     }
 }
 
