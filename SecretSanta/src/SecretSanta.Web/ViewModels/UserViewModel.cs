@@ -15,5 +15,7 @@ namespace SecretSanta.Web.ViewModels
         [Required]
         [Display(Name = "Last Name")]
         public string LastName { get; set; } = "";
+
+        public string FullName{get => $"{FirstName} {LastName}";}
     }
 }
