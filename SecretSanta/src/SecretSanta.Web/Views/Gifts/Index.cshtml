@@ -16,7 +16,7 @@
                     @foreach(var Gift in user.Gifts){
                         @Gift.GiftName
                         @Gift.GiftDescription
-                        @Gift.GiftURL
+                        @Gift.GiftUrl
                         @Gift.GiftPriority
                         @Gift.GiftUser <a asp-controller="Gifts" asp-action="Edit" asp-route-id=@counter>Edit</a>
                         <form asp-controller="Gifts" asp-action="Delete" method="post" as-route-id=@counter><button>Delete</button></form>

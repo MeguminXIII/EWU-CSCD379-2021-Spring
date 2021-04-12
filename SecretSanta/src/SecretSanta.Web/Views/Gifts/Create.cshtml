@@ -15,7 +15,7 @@
     </div>
     <div>
         <label asp-for="GiftUser"></label>: <input type="text" asp-for="GiftUser"/>
-        <select asp-validation-formaction="GiftUser" asp-items="A(new SelectList(SecretSanta.Web.Data.MockData.Users, "Id", "FullName"))">
+        <select asp-validation-formaction="GiftUser">
             <option>Please select one</option>
         </select>
     </div>
