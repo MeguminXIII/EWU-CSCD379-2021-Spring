@@ -16,6 +16,9 @@ namespace SecretSanta.Web
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            //Cal:Add the hooks that allow us to use controllers with views
+            services.AddControllersWithViews();
+            //Cal:in the Api we dont return a view so only addControllers
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -28,12 +31,21 @@ namespace SecretSanta.Web
 
             app.UseRouting();
 
+            app.UseStaticFiles();//cal: add to match lecture, unsure its purpose yet.
+
             app.UseEndpoints(endpoints =>
             {
+                /*cal:removing this default. Is used to set things up manually
                 endpoints.MapGet("/", async context =>
                 {
                     await context.Response.WriteAsync("Hello from Web!");
                 });
+                //end default
+                */
+
+                //cal:added this
+                endpoints.MapDefaultControllerRoute();//cal: this sets things up in a default way
+                
             });
         }
     }

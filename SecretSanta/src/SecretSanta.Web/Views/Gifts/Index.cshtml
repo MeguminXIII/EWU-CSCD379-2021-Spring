@@ -1,0 +1,20 @@
+<h1>Welcome to the Gifts Page</h1>
+@model List<GiftViewModel>
+
+@{int counter = 0;}
+@foreach(GiftViewModel gift in Model)
+{
+    <section>
+        <!-- cal:the asp-route... means the ... part is the value were assigning-->
+        <h2>@gift.Title</h2> 
+        <p>@gift.Description</p> 
+        <p>(@gift.Url)</p> 
+        <p>Priority: [@gift.Priority]<p>
+        <a asp-controller="Gifts" asp-action="Edit" asp-route-id=@counter> Edit</a>
+        <form asp-controller="Gifts" asp-action="Delete" asp-route-id=@counter method="post">
+            <button>X</button>
+        </form>
+        @{counter++;}
+    </section>
+}
+<a asp-asp-asp-controller="Gifts" asp-action="Create"><h4>Create a New Gift</h4></a>
