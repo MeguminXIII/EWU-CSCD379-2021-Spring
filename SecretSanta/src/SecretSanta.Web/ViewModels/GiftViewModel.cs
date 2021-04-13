@@ -20,9 +20,9 @@ namespace SecretSanta.Web.ViewModels
         [Required]
         public int GiftPriority {get; set;}
 
-        public string? GiftUser {get; set;}
         [Display(Name = "GiftUser")]
-        public int ID {get; set;}
+        public string? GiftUser {get; set;}
+        public int UserID {get; set;}
         public int GiftId {get; set;}
     }
 }

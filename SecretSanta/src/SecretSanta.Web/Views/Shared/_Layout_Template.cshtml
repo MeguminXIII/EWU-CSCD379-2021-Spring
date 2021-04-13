@@ -21,7 +21,7 @@
         @RenderBody()
 
         <!-- Scripts begin here -->
-        <% for (var filename in htmlWebpackPlugin.files.js) { %>
+        <% for (var index in htmlWebpackPlugin.files.js) { %>
         <script src="~<%= htmlWebpackPlugin.files.js[index] %>"></script>
         <% } %>
         <!-- End Scripts -->

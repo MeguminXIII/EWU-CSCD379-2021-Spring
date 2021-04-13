@@ -21,24 +21,29 @@ namespace SecretSanta.Web.Controllers
         [HttpPost]
         public IActionResult Create(GiftViewModel vm){
             if(ModelState.IsValid){
-                MockData.GiftsList[vm.GiftId].Add(vm);
+                MockData.GiftsList.Add(vm);
                 return RedirectToAction(nameof(Index));
             }
             return View(vm);
+        }
+
+        public IActionResult Edit(int id)
+        {
+            return View(MockData.GiftsList[id]);
         }
 
         [HttpPost]
         public IActionResult Edit(GiftViewModel vm){
             if(ModelState.IsValid){
-                MockData.GiftsList[vm.GiftId][vm.ID] = vm;
+                MockData.GiftsList[vm.GiftId] = vm;
                 return RedirectToAction(nameof(Index));
             }
             return View(vm);
         }
 
         [HttpPost]
-        public IActionResult Delete(int usersID, int ID){
-            MockData.GiftsList[usersID].RemoveAt(ID);
+        public IActionResult Delete(int ID){
+            MockData.GiftsList.RemoveAt(ID);
             return RedirectToAction(nameof(Index));
         }
     }
