@@ -10,12 +10,12 @@ namespace SecretSanta.Web.Data
     {
         public static List<GroupViewModel> Groups = new List<GroupViewModel>
         {
-            new GroupViewModel {GroupName = Users[0].GroupName, Users = new List<UserViewModel>{Users[0], Users[1]}}
+            new GroupViewModel {GroupName = Users![0].GroupName!, Users = new List<UserViewModel>{Users[0], Users[1]}}
         };
 
         public static List<UserViewModel> Users = new List<UserViewModel>
         {
-            new UserViewModel {FirstName = "John", LastName = "Doe", GroupName="Anonymous", UserID=0, Gifts = GiftsList[0]},
+            new UserViewModel {FirstName = "John", LastName = "Doe", GroupName="Anonymous", UserID=0, Gifts = GiftsList![0]},
             new UserViewModel {FirstName = "Jane", LastName = "Doe", GroupName="Anonymous", UserID=1, Gifts = GiftsList[1]},
         };
 

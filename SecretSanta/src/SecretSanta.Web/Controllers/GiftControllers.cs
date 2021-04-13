@@ -15,7 +15,7 @@ namespace SecretSanta.Web.Controllers
         }
 
         public IActionResult Index(){
-            return View(MockData.Users);
+            return View(MockData.GiftsList);
         }
 
         [HttpPost]
