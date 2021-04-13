@@ -4,7 +4,9 @@
         <meta name="viewport" content="width=device-width"/>
         <title>SecretSanta -  @ViewBag.Title</title>
         <!-- Stylesheets begin here -->
+        <% for (var filename in htmlWebpackPlugin.files.css) { %>
         <link href="~<%= htmlWebpackPlugin.files.css[filename] %>" rel="stylesheet" />
+        <% } %>
         <!-- Stylesheets have ended -->
     </head>
     <body>
@@ -19,7 +21,9 @@
         @RenderBody()
 
         <!-- Scripts begin here -->
+        <% for (var filename in htmlWebpackPlugin.files.js) { %>
         <script src="~<%= htmlWebpackPlugin.files.js[index] %>"></script>
+        <% } %>
         <!-- End Scripts -->
     </body>
 </html>
