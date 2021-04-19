@@ -33,12 +33,16 @@ And the classes.
 @layer components
 {
     .generalButton{
-        @apply border border-purple-800 rounded-xl px-2 py-1 bg-purple-200 leading-6;
+        @apply border border-purple-800 rounded-xl px-2 py-1 bg-purple-200 leading-6 hover:bg-purple-500;
     }
 }
 
 .generalLabel{
     @apply text-purple-800 font-bold;
+}
+
+.generalInput{
+    @apply border border-purple-500 rounded-md;
 }
 
 .underlinedText{
