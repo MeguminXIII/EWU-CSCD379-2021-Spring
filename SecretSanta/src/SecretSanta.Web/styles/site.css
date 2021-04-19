@@ -1,0 +1,12 @@
+@tailwind base;/* cal: contains the reset. Overrides browser defaults */
+
+.nav_background{
+    background-color: yellowgreen;
+}
+
+.unorderedList_style{
+    color: white;
+    display: flex;
+    list-style: none;
+}
+

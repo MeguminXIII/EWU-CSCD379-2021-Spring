@@ -8,15 +8,13 @@
     <link href="~<%= htmlWebpackPlugin.files.css[filename] %>" rel="stylesheet" />
     <% } %>
     <!-- End Stylesheets -->
-    <style>
-        .background{
-            background-color: blueviolet;
-        }
-    </style>
+    
+    <!-- Cal: Styles can go here if you dont want to put them in the css file. Place inbetween <style> tags-->
+    <!-- Cal: Can use syntax nav>ul>li>a{} to get specific changes.-->
 </head>
 <body>
-    <nav class = "background">
-        <ul>
+    <nav class = "nav_background">
+        <ul class = "unorderedList_style">
             <li><a asp-controller="Home" asp-action="Index">Home</a></li>
             <li><a asp-controller="Users" asp-action="Index">Users</a></li>
             <li><a asp-controller="Groups" asp-action="Index">Groups</a></li>
