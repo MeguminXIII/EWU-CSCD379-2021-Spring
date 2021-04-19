@@ -55,6 +55,10 @@ And the classes.
     .marginTopSpace{
         @apply inline-block mt-3;
     }
+
+    .marginLeftSpace{
+        @apply ml-3;
+    }
 }
 
 

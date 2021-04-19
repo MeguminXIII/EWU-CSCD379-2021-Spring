@@ -3,7 +3,7 @@
 @{int counter = 0;}
 
 @foreach(var userViewModel in Model) {
-    <section class = "grid grid-cols-3">
+    <section class = "grid grid-cols-3 marginLeftSpace">
         
         <label class = "generalLabel w-1/4">@userViewModel.FirstName </label>
         <label class = "generalLabel inline-block w-1/4">@userViewModel.LastName</label>
@@ -17,4 +17,4 @@
         
     </section>
 }
-<a class = "generalButton marginTopSpace" asp-action="Create">Create</a>
+<a class = "generalButton marginTopSpace marginLeftSpace" asp-action="Create">Create</a>

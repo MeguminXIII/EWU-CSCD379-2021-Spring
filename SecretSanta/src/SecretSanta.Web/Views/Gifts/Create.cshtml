@@ -2,7 +2,7 @@
 
 <form asp-controller="Gifts" asp-action="Create" method="post">
     @await Html.PartialAsync("_CreateOrEdit")
-    <div class = "marginTopSpace">
+    <div class = "marginTopSpace marginLeftSpace">
         <button class="generalButton">Create</button>
         <a class="underlinedText inline-block" asp-controller="Gifts" asp-action="Index">Cancel</a>
     </div>

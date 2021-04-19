@@ -3,7 +3,7 @@
 @{int counter = 0;}
 
 @foreach(var groupViewModel in Model) {
-    <section class = "grid grid-cols-2">
+    <section class = "grid grid-cols-2 marginLeftSpace">
         <label class = "generalLabel w-full">@groupViewModel.Name</label> 
         <div>
             <a class = "underlinedText" asp-action="Edit" asp-route-id=@counter>Edit</a>
@@ -12,4 +12,4 @@
         @{counter++;}
     </section>
 }
-<a class="generalButton marginTopSpace" asp-action="Create">Create</a>
+<a class="generalButton marginTopSpace marginLeftSpace" asp-action="Create">Create</a>
