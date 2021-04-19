@@ -1,7 +1,9 @@
 @model UserViewModel
 
-<form asp-controller="Users" asp-action="Create" method="post">
+<form class="marginTopSpace" asp-controller="Users" asp-action="Create" method="post">
     @await Html.PartialAsync("_CreateOrEdit")
-    <button class ="generalButton">Create</button>
-    <a class = "underlinedText" asp-controller="Users" asp-action="Index">Cancel</a>
+    <div class = "marginTopSpace">
+        <button class ="generalButton">Create</button>
+        <a class = "underlinedText" asp-controller="Users" asp-action="Index">Cancel</a>
+    </div>
 </form>

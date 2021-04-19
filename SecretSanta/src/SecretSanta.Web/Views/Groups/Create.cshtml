@@ -2,6 +2,8 @@
 
 <form asp-controller="Groups" asp-action="Create" method="post">
     @await Html.PartialAsync("_CreateOrEdit")
-    <button class = "generalButton">Create</button>
-    <a class = "underlinedText inline-block" asp-controller="Groups" asp-action="Index">Cancel</a>
+    <div class = "marginTopSpace">
+        <button class = "generalButton">Create</button>
+        <a class = "underlinedText inline-block" asp-controller="Groups" asp-action="Index">Cancel</a>
+    </div>
 </form>

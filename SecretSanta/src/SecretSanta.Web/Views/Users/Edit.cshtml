@@ -3,8 +3,10 @@
 <form asp-controller="Users" asp-action="Edit" method="post">
     <input type="hidden" asp-for="Id" />
     @await Html.PartialAsync("_CreateOrEdit")
-    <button class='generalButton'>Update</button>
-    <a class='underlinedText inline-block' asp-controller="Users" asp-action="Index">
-        Cancel
-    </a>
+    <div class = "marginTopSpace">
+        <button class='generalButton'>Update</button>
+        <a class='underlinedText inline-block' asp-controller="Users" asp-action="Index">
+            Cancel
+        </a>
+    </div>
 </form>

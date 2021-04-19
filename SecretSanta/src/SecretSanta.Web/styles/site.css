@@ -51,6 +51,10 @@ And the classes.
         @apply border-gray-500;
         @apply hover:text-blue-600 hover:border-blue-600;
     }
+
+    .marginTopSpace{
+        @apply inline-block mt-3;
+    }
 }
 
 
