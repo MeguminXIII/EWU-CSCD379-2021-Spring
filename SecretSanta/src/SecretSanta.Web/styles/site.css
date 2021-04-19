@@ -35,17 +35,32 @@ And the classes.
     .generalButton{
         @apply border border-purple-800 rounded-xl px-2 py-1 bg-purple-200 leading-6 hover:bg-purple-500;
     }
+
+    .generalInput{
+        @apply border border-purple-500 rounded-md;
+        @apply focus:outline-none focus:ring-transparent focus:border-purple-600 focus:bg-purple-100;
+    }
+
+    .generalLabel{
+        @apply text-purple-800 font-bold;
+    }
+
+    .underlinedText{
+        @apply border-b-2;
+        @apply border-gray-500;
+        @apply hover:text-blue-600 hover:border-blue-600;
+    }
 }
 
-.generalLabel{
-    @apply text-purple-800 font-bold;
-}
 
-.generalInput{
-    @apply border border-purple-500 rounded-md;
-}
 
-.underlinedText{
-    @apply border-b-2;
-    @apply border-gray-500;
+
+
+
+
+@layer utilities
+{
+    .input-validation-error{
+        @apply border-red-400 focus:border-red-800;
+    }
 }
