@@ -17,4 +17,17 @@
     .input-validation-error{
         @apply border-green-400 focus:border-green-800;
     }
+
+    .btn{
+        @apply border border-red-600;
+        @apply rounded-xl m-5 py-3 px-5 bg-red-400 hover:bg-red-800 hover:border-red-800;
+    }
+
+    form{
+        @apply m-10
+    }
+
+  select{
+        @apply border border-indigo-400 m-3 py-1;
+    }
 }
