@@ -15,8 +15,11 @@
 <body>
     <!-- Cal: the flex is used for inlining. Flex defaults to a row so use flex-col to set up columns-->
     <header class="nav_background text-white flex flex-col sm:flex-row justify-between">
+        <div class="flex flex-row justify-between">
         <a class="text-xl font-bold px-6 leading-10" asp-controller="Home" asp-action="Index">Secret Santa</a>
-        <nav>
+        <button class="sm:hidden"><i class="fas fa-bars align-middle h-full"></i>></button>
+        </div>
+        <nav class ="hidden sm:inline-block">
         <ul class = "flex flex-col sm:flex-row">
             <li><a class="sm:px-6 leading-10" asp-controller="Users" asp-action="Index">Users</a></li>
             <li><a class="sm:px-6 leading-10" asp-controller="Groups" asp-action="Index">Groups</a></li>
