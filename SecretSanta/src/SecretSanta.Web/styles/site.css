@@ -43,6 +43,7 @@ And the classes.
 
     .generalLabel{
         @apply text-purple-800 font-bold;
+        
     }
 
     .underlinedText{
