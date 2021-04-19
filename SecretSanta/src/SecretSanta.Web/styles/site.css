@@ -1,6 +1,6 @@
 @tailwind base;
-@tailwind components; 
-@tailwind utilities; 
+@tailwind components;
+@tailwind utilities;
 /* cal: contains the reset. Overrides browser defaults.
 The base math.
 And the classes.
@@ -11,10 +11,13 @@ And the classes.
     background-color: yellowgreen;
 }
 
+
 /*
 .nav_background{
-    @apply bg-green-300;
-}*/
+    @apply bg-green-500;
+    
+}
+*/
 
 /*cal: this is normal css styling
 .unorderedList_style{
