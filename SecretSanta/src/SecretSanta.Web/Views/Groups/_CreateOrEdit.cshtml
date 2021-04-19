@@ -1,7 +1,7 @@
 @model GroupViewModel
 
+<div asp-validation-summary="All"></div>
 <div>
-    <label asp-for="Name"></label>
-    <input type="text" asp-for="Name" />
-    <span asp-validation-for="Name"></span>
+    <label class = "generalLabel" asp-for="Name"></label>
+    <input class = "generalInput block" type="text" asp-for="Name" /> 
 </div>
