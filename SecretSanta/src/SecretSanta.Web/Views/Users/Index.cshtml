@@ -3,9 +3,18 @@
 @{int counter = 0;}
 
 @foreach(var userViewModel in Model) {
-    <section>
-        @userViewModel.FirstName @userViewModel.LastName <a asp-action="Edit" asp-route-id=@counter>Edit</a><form asp-action="Delete" asp-route-id=@counter method="post"><button>X</button></form>
+    <section class = " grid grid-cols-3">
+        
+        <label class = "generalLabel w-1/4">@userViewModel.FirstName </label>
+        <label class = "generalLabel inline-block w-1/4">@userViewModel.LastName</label>
+        <div>
+            <a class = "underlinedText" asp-action="Edit" asp-route-id=@counter>Edit</a>
+            <form class = "inline-block" asp-action="Delete" asp-route-id=@counter method="post">
+                <button>X</button>
+            </form>
+        </div>
         @{counter++;}
+        
     </section>
 }
-<a asp-action="Create">Create</a>
+<a class = "generalButton mt-6" asp-action="Create">Create</a>
