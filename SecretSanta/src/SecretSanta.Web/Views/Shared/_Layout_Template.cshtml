@@ -8,9 +8,14 @@
     <link href="~<%= htmlWebpackPlugin.files.css[filename] %>" rel="stylesheet" />
     <% } %>
     <!-- End Stylesheets -->
+    <style>
+        .background{
+            background-color: blueviolet;
+        }
+    </style>
 </head>
 <body>
-    <nav>
+    <nav class = "background">
         <ul>
             <li><a asp-controller="Home" asp-action="Index">Home</a></li>
             <li><a asp-controller="Users" asp-action="Index">Users</a></li>
