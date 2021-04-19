@@ -2,23 +2,23 @@
 
 <div asp-validation-summary="All"></div>
 <div class="grid grid-cols-5 marginLeftSpace">
-    <div>
+    <div class="mr-3">
         <label class = "generalLabel" asp-for="Title"></label>
         <input class = "generalInput block w-full" type="text" asp-for="Title" />
     </div>
-    <div>
+    <div class="mr-3">
         <label class = "generalLabel" asp-for="Description"></label>
         <input class = "generalInput block w-full" type="text" asp-for="Description" />
     </div>
-    <div>
+    <div class="mr-3">
         <label class = "generalLabel" asp-for="Url"></label>
         <input class = "generalInput block w-full" type="text" asp-for="Url" />
     </div>
-    <div>
+    <div class="mr-3">
         <label class = "generalLabel" asp-for="Priority"></label>
         <input class = "generalInput block w-full" type="text" asp-for="Priority" />   
     </div>
-    <div>
+    <div class="mr-3">
         <label class = "generalLabel" asp-for="UserId"></label>
             <select class="generalInput block" asp-for="UserId" asp-items="@(new SelectList(MockData.Users, "Id", "FullName"))">
                 <option>Please select one</option>
