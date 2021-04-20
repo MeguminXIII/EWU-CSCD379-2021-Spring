@@ -49,6 +49,10 @@ And the classes.
         
     }
 
+    .generalHoverEffect{
+        @apply hover:text-blue-600;
+    }
+
     .underlinedText{
         @apply border-b-2;
         @apply border-gray-500;

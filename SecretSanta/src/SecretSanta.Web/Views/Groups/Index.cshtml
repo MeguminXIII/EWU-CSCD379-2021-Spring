@@ -4,7 +4,9 @@
 
 @foreach(var groupViewModel in Model) {
     <section class = "grid grid-cols-2 marginLeftSpace">
-        <label class = "generalLabel w-full">@groupViewModel.Name</label> 
+        <a asp-action="Edit" asp-route-id=@counter>
+            <label class = "generalLabel w-full generalHoverEffect" >@groupViewModel.Name</label> 
+        </a>
         <div>
             <a class = "underlinedText" asp-action="Edit" asp-route-id=@counter>Edit</a>
             <form class="inline-block" asp-action="Delete" asp-route-id=@counter method="post">

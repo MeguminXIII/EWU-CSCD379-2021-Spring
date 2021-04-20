@@ -4,9 +4,11 @@
 <section class="grid grid-cols-1 md:grid-cols-3">
     @foreach(var userViewModel in Model) {
         <section class = "border-green-500 border-2 p-3 m-3 rounded-lg marginLeftSpace">
-            
-            <label class = "generalLabel">@userViewModel.FirstName </label>
-            <label class = "generalLabel inline-block">@userViewModel.LastName</label>
+            <a asp-action="Edit" asp-route-id=@counter>
+                <!-- <label class = "generalLabel generalHoverEffect">@userViewModel.FirstName </label> -->
+                <!-- <label class = "generalLabel inline-block generalHoverEffect">@userViewModel.LastName</label> -->
+                <label class = "generalLabel generalHoverEffect">@userViewModel.FullName </label>
+            </a>
             <div>
                 <a class = "underlinedText" asp-action="Edit" asp-route-id=@counter>Edit</a>
                 <form class = "inline-block" asp-action="Delete" asp-route-id=@counter method="post">
