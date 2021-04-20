@@ -7,15 +7,17 @@
 @{int counter = 0;}
 <section class="grid sm:grid-cols-3">
 @foreach(var giftViewModel in Model) {
-    <section class="border-red-300 border-2 p-2 m-5 rounded-lg flex justify-between">
+    <section class="border-red-300 border-2 p-3 m-5 rounded-lg flex justify-between">
         <a asp-action="Edit"  asp-route-id=@counter class="text-2xl sm:text-3x1 leading-4 text-black-600 hover:text-red-600">@giftViewModel.Title</a>
-        <form asp-action="Delete" asp-route-id=@counter method="post"><button class="fa-ban-btn" onclick="return confirm('@giftViewModel.Title is about to be deleted. Do you wish to continue?')"><i class="fas fa-ban text-2xl sm:text-2xl leading-4"></i></button></form>
+        <form asp-action="Delete" asp-route-id=@counter method="post">
+            <button class="fa-ban-btn" onclick="return confirm('@giftViewModel.Title is about to be deleted. Do you wish to continue?')"><i class="fas fa-ban text-2xl sm:text-2xl leading-4"></i></button>
+        </form>
         @{counter++;}
     </section>
 }
 </section>
 <section>
     <button class="btn">
-        <a asp-action="Create" class="text-2xl sm:text-2xl p-6">Create Gift</a>
+        <a asp-controller="Gifts" asp-action="Create" class="text-2xl sm:text-2xl p-6">Create Gift</a>
     </button>
 </section>

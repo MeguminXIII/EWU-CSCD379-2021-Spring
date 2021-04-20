@@ -8,6 +8,7 @@ namespace SecretSanta.Web.Controllers
     {
         public IActionResult Index()
         {
+            MockData.Gifts.Sort((g1,g2) => g1.Priority.CompareTo(g2.Priority));
             return View(MockData.Gifts);
         }
 

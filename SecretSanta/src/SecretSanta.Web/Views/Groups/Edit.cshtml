@@ -4,9 +4,14 @@
     ViewBag.Title = "Group Edit";
 }
 
+
 <form asp-controller="Groups" asp-action="Edit" method="post">
     <input type="hidden" asp-for="Id" />
     @await Html.PartialAsync("_CreateOrEdit")
-    <button>Update</button>
-    <a asp-controller="Groups" asp-action="Index">Cancel</a>
+    <div class="m-5">
+        <button class="btn m-5">Update</button>
+        <button class="btn inline-block">
+            <a asp-controller="Groups" asp-action="Index">Cancel</a>
+        </button>
+    </div>
 </form>
