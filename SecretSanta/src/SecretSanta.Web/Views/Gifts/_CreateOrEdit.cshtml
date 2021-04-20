@@ -1,22 +1,22 @@
 @model GiftViewModel
 
 <div asp-validation-summary="All"></div>
-<div class="grid grid-cols-5 marginLeftSpace">
-    <div class="mr-3">
+<div class="grid grid-cols-1 md:grid-cols-2 marginLeftSpace">
+    <div class="mr-3 md:col-span-2">
         <label class = "generalLabel" asp-for="Title"></label>
-        <input class = "generalInput block w-full" type="text" asp-for="Title" />
+        <input class = "generalInput block" type="text" asp-for="Title" />
     </div>
-    <div class="mr-3">
+    <div class="mr-3 md:col-span-2">
         <label class = "generalLabel" asp-for="Description"></label>
-        <input class = "generalInput block w-full" type="text" asp-for="Description" />
+        <input class = "generalInput block w-2/3" type="text" asp-for="Description" />
     </div>
     <div class="mr-3">
         <label class = "generalLabel" asp-for="Url"></label>
-        <input class = "generalInput block w-full" type="text" asp-for="Url" />
+        <input class = "generalInput block" type="text" asp-for="Url" />
     </div>
     <div class="mr-3">
         <label class = "generalLabel" asp-for="Priority"></label>
-        <input class = "generalInput block w-full" type="text" asp-for="Priority" />   
+        <input class = "generalInput block" type="text" asp-for="Priority" />   
     </div>
     <div class="mr-3">
         <label class = "generalLabel" asp-for="UserId"></label>

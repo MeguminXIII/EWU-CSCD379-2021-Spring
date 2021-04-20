@@ -1,10 +1,10 @@
 @model List<GiftViewModel>
 
 @{int counter = 0;}
-
+<section class="grid grid-cols-1 md:grid-cols-3">
 @foreach(var groupViewModel in Model) {
-    <section class = " grid grid-cols-2 marginLeftSpace">
-        <label class = "generalLabel w-full">@groupViewModel.Title</label> 
+    <section class = "border-green-500 border-2 p-3 m-3 rounded-lg marginLeftSpace marginLeftSpace">
+        <label class = "generalLabel">@groupViewModel.Title</label> 
         <div>
             <a class="underlinedText" asp-action="Edit" asp-route-id=@counter>Edit</a>
             <form class="inline-block" asp-action="Delete" asp-route-id=@counter method="post"><button>X</button></form>
@@ -12,4 +12,5 @@
         @{counter++;}
     </section>
 }
+</section>
 <a class="generalButton marginTopSpace marginLeftSpace" asp-action="Create">Create</a>

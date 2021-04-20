@@ -1,20 +1,21 @@
 @model List<UserViewModel>
 
 @{int counter = 0;}
-
-@foreach(var userViewModel in Model) {
-    <section class = "grid grid-cols-3 marginLeftSpace">
-        
-        <label class = "generalLabel w-1/4">@userViewModel.FirstName </label>
-        <label class = "generalLabel inline-block w-1/4">@userViewModel.LastName</label>
-        <div>
-            <a class = "underlinedText" asp-action="Edit" asp-route-id=@counter>Edit</a>
-            <form class = "inline-block" asp-action="Delete" asp-route-id=@counter method="post">
-                <button>X</button>
-            </form>
-        </div>
-        @{counter++;}
-        
-    </section>
-}
+<section class="grid grid-cols-1 md:grid-cols-3">
+    @foreach(var userViewModel in Model) {
+        <section class = "border-green-500 border-2 p-3 m-3 rounded-lg marginLeftSpace">
+            
+            <label class = "generalLabel">@userViewModel.FirstName </label>
+            <label class = "generalLabel inline-block">@userViewModel.LastName</label>
+            <div>
+                <a class = "underlinedText" asp-action="Edit" asp-route-id=@counter>Edit</a>
+                <form class = "inline-block" asp-action="Delete" asp-route-id=@counter method="post">
+                    <button>X</button>
+                </form>
+            </div>
+            @{counter++;}
+            
+        </section>
+    }
+</section>
 <a class = "generalButton marginTopSpace marginLeftSpace" asp-action="Create">Create</a>
