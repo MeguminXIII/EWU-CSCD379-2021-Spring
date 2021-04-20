@@ -1,0 +1,10 @@
+@model UserViewModel
+@{ViewBag.Title = "Create a User";}
+
+<form class="marginTopSpace" asp-controller="Users" asp-action="Create" method="post">
+    @await Html.PartialAsync("_CreateOrEdit")
+    <div class = "marginTopSpace marginLeftSpace">
+        <button class ="generalButton">Create</button>
+        <a class = "underlinedText" asp-controller="Users" asp-action="Index">Cancel</a>
+    </div>
+</form>

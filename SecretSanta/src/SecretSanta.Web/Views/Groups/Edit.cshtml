@@ -1,0 +1,11 @@
+@model GroupViewModel
+@{ViewBag.Title = "Edit a Group";}
+
+<form asp-controller="Groups" asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    @await Html.PartialAsync("_CreateOrEdit")
+    <div class = "marginTopSpace marginLeftSpace">
+        <button class="generalButton">Update</button>
+        <a class="underlinedText inline-block" asp-controller="Groups" asp-action="Index">Cancel</a>
+    </div>
+</form>

@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* cal: contains the reset. Overrides browser defaults.
+The base math.
+And the classes.
+*/
+
+
+.nav_background{
+    background-color: yellowgreen;
+}
+
+
+/*
+.nav_background{
+    @apply bg-green-500;
+    
+}
+*/
+
+/*cal: this is normal css styling
+.unorderedList_style{
+    color: white;
+    display: flex;
+    list-style: none;
+}
+*/
+
+/* And this is it done with tailwind*/
+.unorderedList_style{
+    @apply text-white;
+    @apply flex;
+    @apply list-none;
+}
+@layer components
+{
+    .generalButton{
+        @apply border border-purple-800 rounded-xl px-2 py-1 bg-purple-200 leading-6 hover:bg-purple-500;
+    }
+
+    .generalInput{
+        @apply border border-purple-500 rounded-md;
+        @apply focus:outline-none focus:ring-transparent focus:border-purple-600 focus:bg-purple-100;
+    }
+
+    .generalLabel{
+        @apply text-purple-800 font-bold;
+        
+    }
+
+    .generalHoverEffect{
+        @apply hover:text-blue-600;
+    }
+
+    .underlinedText{
+        @apply border-b-2;
+        @apply border-gray-500;
+        @apply hover:text-blue-600 hover:border-blue-600;
+    }
+
+    .marginTopSpace{
+        @apply inline-block mt-3;
+    }
+
+    .marginLeftSpace{
+        @apply ml-3;
+    }
+}
+
+
+
+
+
+
+
+@layer utilities
+{
+    .input-validation-error{
+        @apply border-red-400 focus:border-red-800;
+    }
+}

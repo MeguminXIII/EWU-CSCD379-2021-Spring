@@ -1,0 +1,10 @@
+@model GroupViewModel
+@{ViewBag.Title = "Create a Group";}
+
+<form asp-controller="Groups" asp-action="Create" method="post">
+    @await Html.PartialAsync("_CreateOrEdit")
+    <div class = "marginTopSpace marginLeftSpace">
+        <button class = "generalButton">Create</button>
+        <a class = "underlinedText inline-block" asp-controller="Groups" asp-action="Index">Cancel</a>
+    </div>
+</form>

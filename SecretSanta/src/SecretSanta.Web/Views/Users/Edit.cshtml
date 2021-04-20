@@ -1,0 +1,13 @@
+@model UserViewModel
+@{ViewBag.Title = "Edit a User";}
+
+<form asp-controller="Users" asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    @await Html.PartialAsync("_CreateOrEdit")
+    <div class = "marginTopSpace marginLeftSpace">
+        <button class='generalButton'>Update</button>
+        <a class='underlinedText inline-block' asp-controller="Users" asp-action="Index">
+            Cancel
+        </a>
+    </div>
+</form>
