@@ -12,14 +12,14 @@
 <body>
     <header class="bg-red-500 text-black flex flex-col sm:flex-row justify-between p-6" x-data="SecretSanta.setupNav()">
         <div class="flex flex-row justify-between">
-            <a class="text-3xl text-bold leading-10 hover:text-indigo-800" asp-controller="Home" asp-action="Index">Secret Santa</a>
+            <a class="text-5xl text-bold leading-10 hover:text-indigo-800" asp-controller="Home" asp-action="Index">Secret Santa</a>
             <button class="sm:hidden" @@click="toggleMenu()"><i class="fas fa-bars text-2xl text-bold align-middle h-full"></i></button>
         </div>
     <nav id="headerNav" class="hidden sm:inline-block">
         <ul class="flex flex-col sm:flex-row">
-            <li class="sm:px-8 text-1xl leading-10 hover:text-indigo-800"><a asp-controller="Groups" asp-action="Index">Groups</a></li>
-            <li class="sm:px-8 text-1xl leading-10 hover:text-indigo-800"><a asp-controller="Users" asp-action="Index">Users</a></li>
-            <li class="sm:px-8 text-1xl leading-10 hover:text-indigo-800"><a asp-controller="Gifts" asp-action="Index">Gifts</a></li>
+            <li class="sm:px-8 text-2xl leading-10 hover:text-indigo-800"><a asp-controller="Groups" asp-action="Index">Groups</a></li>
+            <li class="sm:px-8 text-2xl leading-10 hover:text-indigo-800"><a asp-controller="Users" asp-action="Index">Users</a></li>
+            <li class="sm:px-8 text-2xl leading-10 hover:text-indigo-800"><a asp-controller="Gifts" asp-action="Index">Gifts</a></li>
         </ul>
     </nav>
     </header>

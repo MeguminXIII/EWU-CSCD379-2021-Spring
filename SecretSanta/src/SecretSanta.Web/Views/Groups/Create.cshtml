@@ -7,9 +7,9 @@
 <form asp-controller="Groups" asp-action="Create" method="post">
     @await Html.PartialAsync("_CreateOrEdit")
     <div class="m-5">
-    <button class="btn">Create</button>
-    <button class="btn inline-block">
-        <a asp-controller="Groups" asp-action="Index">Cancel</a>
-    </button>
+        <button class="btn">Create</button>
+        <button class="btn inline-block">
+            <a asp-controller="Groups" asp-action="Index">Cancel</a>
+        </button>
     </div>
 </form>
