@@ -7,6 +7,10 @@
 <form asp-controller="Users" asp-action="Edit" method="post">
     <input type="hidden" asp-for="Id" />
     @await Html.PartialAsync("_CreateOrEdit")
-    <button class="btn btn-primary">Update</button>
-    <a asp-controller="Users" asp-action="Index">Cancel</a>
+    <div class="m-5">
+        <button class="btn">Update</button>
+        <button class="btn inline-block">
+            <a asp-controller="Users" asp-action="Index">Cancel</a>
+        </button>
+    </div>
 </form>
