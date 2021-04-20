@@ -10,7 +10,7 @@
             <div>
                 <a class = "underlinedText" asp-action="Edit" asp-route-id=@counter>Edit</a>
                 <form class = "inline-block" asp-action="Delete" asp-route-id=@counter method="post">
-                    <button>X</button>
+                    <button onclick="return confirm('Are you sure you want to delete @userViewModel.FullName?')">X</button>
                 </form>
             </div>
             @{counter++;}
