@@ -19,7 +19,7 @@
     }
 
     .btn{
-        @apply border border-red-600;
+        @apply border border-red-600 text-black;
         @apply rounded-xl m-5 py-3 px-5 bg-red-400 hover:bg-red-800 hover:border-red-800;
     }
 
