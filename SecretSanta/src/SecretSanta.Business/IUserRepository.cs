@@ -7,7 +7,7 @@ namespace SecretSanta.Business
     {
         ICollection<User> List();
         User? GetItem(int id);
-        bool Remove(int id);
+        bool RemoveAt(int id);
         User Create(User item);
         void Save(User item);
     }
