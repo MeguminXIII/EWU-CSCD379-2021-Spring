@@ -31,7 +31,7 @@ namespace SecretSanta.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<User?> Delete(int id)
+        public ActionResult Delete(int id)
         {
             if(id < 0) return NotFound();
             UserManager.RemoveAt(id);

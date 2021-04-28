@@ -3,7 +3,7 @@
 @host = https://{{hostname}}:{{port}}
 @contentType = application/json
 
-###
+### 
 GET {{host}}/api/users
 
 ###
@@ -15,9 +15,13 @@ DELETE {{host}}/api/users/0
 ###
 POST {{host}}/api/users
 Content-Type: {{contentType}}
+{
 "Inigo Montoya"
+}
 
 ###
 PUT {{host}}/api/users/0
 Content-Type: {{contentType}}
+{
 "Red Green"
+}

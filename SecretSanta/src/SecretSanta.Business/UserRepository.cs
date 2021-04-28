@@ -16,7 +16,7 @@ namespace SecretSanta.Business
         public User? GetItem(int id)
         {
             if(id < 0) throw new ArgumentOutOfRangeException(nameof(id));
-            return DeleteMe.Users.FirstOrDefault(x => x.Id == id);
+            return DeleteMe.Users.Find(x => x.Id == id);
         }
 
         public ICollection<User> List()
@@ -26,10 +26,9 @@ namespace SecretSanta.Business
 
         public bool RemoveAt(int id)
         {
-            User? curUser = DeleteMe.Users.FirstOrDefault(x => x.Id == id);
+            User? curUser = DeleteMe.Users.Find(x => x.Id == id);
             if(curUser is null) return false;
-            DeleteMe.Users.Remove(curUser);
-            return true;
+            return DeleteMe.Users.Remove(curUser);
         }
 
         public void Save(User item)
