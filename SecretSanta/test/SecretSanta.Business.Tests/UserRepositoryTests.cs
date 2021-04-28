@@ -84,7 +84,7 @@ namespace SecretSanta.Business.Tests
                 LastName = "Montoya",
                 Id = 1
             };
-
+            
             Mock<IUserRepository> moq = new();
             moq.Setup(item => item.Save(newUser));
             moq.Object.Save(newUser);
