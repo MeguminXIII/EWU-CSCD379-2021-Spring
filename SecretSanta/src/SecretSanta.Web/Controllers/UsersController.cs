@@ -1,11 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
 using SecretSanta.Web.Data;
 using SecretSanta.Web.ViewModels;
+using SecretSanta.Web.Api;
+using System.Threading.Tasks;
 
 namespace SecretSanta.Web.Controllers
 {
     public class UsersController : Controller
     {
+        public IUsersClient UserClient { get; }
         public IActionResult Index()
         {
             return View(MockData.Users);
@@ -34,11 +37,14 @@ namespace SecretSanta.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(UserViewModel viewModel)
+        public async Task<IActionResult> Edit(UserViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
-                MockData.Users[viewModel.Id] = viewModel;
+                await UserClient.PutAsync(viewModel.Id, new DtoUser{
+                    FirstName = viewModel.FirstName,
+                    LastName = viewModel.LastName
+                });
                 return RedirectToAction(nameof(Index));
             }
 
