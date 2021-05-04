@@ -20,7 +20,7 @@ namespace SecretSanta.Web.Controllers
         {
             ICollection<DtoUser?> users = (ICollection<DtoUser?>)await UserClient.GetAllAsync();
             List<UserViewModel> viewModel = new();
-            foreach (DtoUser dtoUser in users){
+            foreach (var dtoUser in users){
                 if((dtoUser?.Id ?? null) is null) continue;
                 viewModel.Add(new UserViewModel{
                     Id = (int)dtoUser!.Id!,
@@ -41,6 +41,7 @@ namespace SecretSanta.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                if(viewModel is null) throw new ArgumentNullException(nameof(viewModel));
                 await UserClient.PostAsync(new DtoUser{
                     FirstName = viewModel.FirstName,
                     LastName = viewModel.LastName,
@@ -68,6 +69,7 @@ namespace SecretSanta.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                if(viewModel is null) throw new ArgumentNullException(nameof(viewModel));
                 await UserClient.PutAsync(viewModel.Id, new DtoUser{
                     FirstName = viewModel.FirstName,
                     LastName = viewModel.LastName,

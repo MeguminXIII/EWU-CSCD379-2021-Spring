@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using SecretSanta.Web.Data;
@@ -23,6 +24,7 @@ namespace SecretSanta.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                if(viewModel is null) throw new ArgumentNullException(nameof(viewModel));
                 viewModel.Id = MockData.Gifts.Max(g => g.Id) + 1;
                 MockData.Gifts.Add(viewModel);
                 return RedirectToAction(nameof(Index));

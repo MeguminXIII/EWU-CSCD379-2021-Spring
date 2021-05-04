@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Mvc;
 using SecretSanta.Web.Data;
 using SecretSanta.Web.ViewModels;
@@ -38,6 +39,7 @@ namespace SecretSanta.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                if(viewModel is null) throw new ArgumentNullException(nameof(viewModel));
                 MockData.Groups[viewModel.Id] = viewModel;
                 return RedirectToAction(nameof(Index));
             }
