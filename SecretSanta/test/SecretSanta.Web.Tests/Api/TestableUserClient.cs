@@ -19,22 +19,12 @@ namespace SecretSanta.Web.Tests.Api
             });
         }
 
-        public Task DeleteAsync(int id, CancellationToken cancellationToken)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public List<User> GetAllUsers {get; set;} = new();
         public int GetAllAsyncCalledCount {get; set;}
         public Task<ICollection<User>> GetAllAsync()
         {
             GetAllAsyncCalledCount++;
             return Task.FromResult<ICollection<User>>(GetAllUsers);
-        }
-
-        public Task<ICollection<User>> GetAllAsync(CancellationToken cancellationToken)
-        {
-            throw new System.NotImplementedException();
         }
 
         public DtoUser? GetAsyncDtoUser {get; set;}
@@ -48,11 +38,6 @@ namespace SecretSanta.Web.Tests.Api
             return null!;
         }
 
-        public Task<DtoUser> GetAsync(int id, CancellationToken cancellationToken)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public int PostAsyncCalledCount {get; set;}
         public List<DtoUser> PostAsyncParams {get;} = new();
         public Task<DtoUser> PostAsync(DtoUser myUser)
@@ -61,11 +46,6 @@ namespace SecretSanta.Web.Tests.Api
             PostAsyncParams.Add(myUser);
             var user = Task.FromResult(myUser);
             return user;
-        }
-
-        public Task<User> PostAsync(DtoUser user, CancellationToken cancellationToken)
-        {
-            throw new System.NotImplementedException();
         }
 
         public List<DtoUser> PutAsyncParams {get;} = new();
@@ -77,12 +57,30 @@ namespace SecretSanta.Web.Tests.Api
             return Task.FromResult(user);
         }
 
+        public Task<ICollection<User>> GetAllAsync(CancellationToken cancellationToken)
+        {
+            throw new System.NotImplementedException();
+        }
+        public Task<DtoUser> GetAsync(int id, CancellationToken cancellationToken)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<User> PostAsync(DtoUser user, CancellationToken cancellationToken)
+        {
+            throw new System.NotImplementedException();
+        }
         public Task PutAsync(int id, DtoUser user, CancellationToken cancellationToken)
         {
             throw new System.NotImplementedException();
         }
 
         Task<User> IUsersClient.PostAsync(DtoUser user)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task DeleteAsync(int id, CancellationToken cancellationToken)
         {
             throw new System.NotImplementedException();
         }

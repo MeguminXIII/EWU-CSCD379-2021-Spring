@@ -6,6 +6,7 @@ using SecretSanta.Business;
 using SecretSanta.Data;
 using SecretSanta.Api.Dto;
 using System.Linq;
+using System;
 
 namespace SecretSanta.Api.Controllers
 {
@@ -17,7 +18,7 @@ namespace SecretSanta.Api.Controllers
 
         public UsersController(IUserRepository repository)
         {
-            Repository = repository ?? throw new System.ArgumentNullException(nameof(repository));
+            Repository = repository ?? throw new ArgumentNullException(nameof(repository));
         }
 
         [HttpGet]
@@ -62,9 +63,9 @@ namespace SecretSanta.Api.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(User), StatusCodes.Status200OK)]
-        public ActionResult<DtoUser?> Post([FromBody] DtoUser? user)
+        public ActionResult<DtoUser?> Post([FromBody] DtoUser? dtoUser)
         {
-            if (user is null)
+            if (dtoUser is null)
             {
                 return BadRequest();
             }
@@ -76,11 +77,11 @@ namespace SecretSanta.Api.Controllers
                 id = (Repository.List().Select(user => user.Id).Max() + 1);
             }
             Repository.Create(new User(){
-                FirstName = user.FirstName ?? " ",
-                LastName = user.LastName ?? " ",
+                FirstName = dtoUser.FirstName ?? " ",
+                LastName = dtoUser.LastName ?? " ",
                 Id = id
             });
-            return user;
+            return dtoUser;
         }
 
         [HttpPut("{id}")]

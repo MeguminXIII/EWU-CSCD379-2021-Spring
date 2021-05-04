@@ -10,16 +10,28 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SecretSanta.Api.Controllers;
+using SecretSanta.Api.Tests.Business;
 
 namespace SecretSanta.Api.Tests.Controllers
 {
     [TestClass]
     public class UserControllerTests
     {
-        [TestMethod]
-        public void Constructor_WithNullUserRepository_ThrowsArgumentNullException(){
-            ArgumentNullException argumentNullException = Assert.ThrowsException<ArgumentNullException>(() => new UsersController(null!));
-            Assert.AreEqual("userRepository", argumentNullException.ParamName);
-        }
+        private WebApplicationFactory Factory {get;} = new();
+
+        #region GET() TESTS
+        #endregion GET() TESTS
+
+        #region GET(ID) TESTS
+        #endregion GET(ID) TESTS
+
+        #region POST(DTO) TESTS
+        #endregion POST(DTO) TESTS
+
+        #region PUT(ID, DTO) TESTS
+        #endregion PUT(ID, DTO) TESTS
+
+        #region DELETE(ID) TESTS
+        #endregion DELETE(ID) TESTS
     }
 }

@@ -26,11 +26,11 @@ namespace SecretSanta.Web.Api
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<User>> GetAllAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<User> PostAsync(DtoUser user);
+        System.Threading.Tasks.Task<User> PostAsync(DtoUser dtoUser);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<User> PostAsync(DtoUser user, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<User> PostAsync(DtoUser dtoUser, System.Threading.CancellationToken cancellationToken);
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<DtoUser> GetAsync(int id);
@@ -161,14 +161,14 @@ namespace SecretSanta.Web.Api
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<User> PostAsync(DtoUser user)
+        public System.Threading.Tasks.Task<User> PostAsync(DtoUser dtoUser)
         {
-            return PostAsync(user, System.Threading.CancellationToken.None);
+            return PostAsync(dtoUser, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<User> PostAsync(DtoUser user, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<User> PostAsync(DtoUser dtoUser, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("api/Users");
@@ -179,7 +179,7 @@ namespace SecretSanta.Web.Api
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
                 {
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(user, _settings.Value));
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(dtoUser, _settings.Value));
                     content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("POST");
