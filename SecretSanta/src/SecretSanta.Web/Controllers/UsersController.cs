@@ -3,15 +3,32 @@ using SecretSanta.Web.Data;
 using SecretSanta.Web.ViewModels;
 using SecretSanta.Web.Api;
 using System.Threading.Tasks;
+using System;
+using System.Collections.Generic;
 
 namespace SecretSanta.Web.Controllers
 {
     public class UsersController : Controller
     {
         public IUsersClient UserClient { get; }
-        public IActionResult Index()
+
+        public UsersController(IUsersClient userClient){
+            UserClient = userClient ?? throw new ArgumentNullException(nameof(userClient));
+        }
+
+        public async Task<IActionResult> Index()
         {
-            return View(MockData.Users);
+            ICollection<DtoUser?> users = (ICollection<DtoUser?>)await UserClient.GetAllAsync();
+            List<UserViewModel> viewModel = new();
+            foreach (DtoUser dtoUser in users){
+                if((dtoUser?.Id ?? null) is null) continue;
+                viewModel.Add(new UserViewModel{
+                    Id = (int)dtoUser!.Id!,
+                    FirstName = dtoUser.FirstName,
+                    LastName = dtoUser.LastName
+                });
+            }
+            return View(viewModel);
         }
 
         public IActionResult Create()
@@ -20,20 +37,30 @@ namespace SecretSanta.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(UserViewModel viewModel)
+        public async Task<IActionResult> Create(UserViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
-                MockData.Users.Add(viewModel);
+                await UserClient.PostAsync(new DtoUser{
+                    FirstName = viewModel.FirstName,
+                    LastName = viewModel.LastName,
+                    Id = viewModel.Id
+                });
                 return RedirectToAction(nameof(Index));
             }
 
             return View(viewModel);
         }
 
-        public IActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int id)
         {
-            return View(MockData.Users[id]);
+            DtoUser newUser = await UserClient.GetAsync(id);
+            
+            return View(new UserViewModel{
+                FirstName = newUser.FirstName,
+                LastName = newUser.LastName,
+                Id = id
+            });
         }
 
         [HttpPost]
@@ -43,7 +70,8 @@ namespace SecretSanta.Web.Controllers
             {
                 await UserClient.PutAsync(viewModel.Id, new DtoUser{
                     FirstName = viewModel.FirstName,
-                    LastName = viewModel.LastName
+                    LastName = viewModel.LastName,
+                    Id = viewModel.Id
                 });
                 return RedirectToAction(nameof(Index));
             }
@@ -52,9 +80,10 @@ namespace SecretSanta.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            MockData.Users.RemoveAt(id);
+            if(id >= 0)
+                await UserClient.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
     }
