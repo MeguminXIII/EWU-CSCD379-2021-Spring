@@ -18,7 +18,7 @@ namespace SecretSanta.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            ICollection<DtoUser?> users = (ICollection<DtoUser?>)await UserClient.GetAllAsync();
+            ICollection<User?> users = await UserClient.GetAllAsync();
             List<UserViewModel> viewModel = new();
             foreach (var dtoUser in users){
                 if((dtoUser?.Id ?? null) is null) continue;
