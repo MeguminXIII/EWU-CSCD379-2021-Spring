@@ -19,12 +19,12 @@ namespace SecretSanta.Web.Tests.Api
             });
         }
 
-        public List<User> GetAllUsers {get; set;} = new();
+        public List<DtoUser> GetAllUsers {get; set;} = new();
         public int GetAllAsyncCalledCount {get; set;}
-        public Task<ICollection<User>> GetAllAsync()
+        public Task<ICollection<DtoUser>> GetAllAsync()
         {
             GetAllAsyncCalledCount++;
-            return Task.FromResult<ICollection<User>>(GetAllUsers);
+            return Task.FromResult<ICollection<DtoUser>>(GetAllUsers);
         }
 
         public DtoUser? GetAsyncDtoUser {get; set;}
@@ -48,12 +48,12 @@ namespace SecretSanta.Web.Tests.Api
             return user;
         }
 
-        public List<DtoUser> PutAsyncParams {get;} = new();
+        public DtoUser PutAsyncParam {get; set;} = new();
         public int PutAsyncCalledCounter {get; set;}
         public Task PutAsync(int id, DtoUser user)
         {
             PutAsyncCalledCounter++;
-            PutAsyncParams[id] = user;
+            PutAsyncParam = user;
             return Task.FromResult(user);
         }
 
@@ -81,6 +81,11 @@ namespace SecretSanta.Web.Tests.Api
         }
 
         public Task DeleteAsync(int id, CancellationToken cancellationToken)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        Task<ICollection<User>> IUsersClient.GetAllAsync()
         {
             throw new System.NotImplementedException();
         }
