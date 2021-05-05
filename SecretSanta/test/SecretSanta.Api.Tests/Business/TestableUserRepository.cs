@@ -28,10 +28,12 @@ namespace SecretSanta.Api.Tests.Business
             if(UsersList is null) UsersList = new List<User>();
             return UsersList;        }
 
+        public bool RemoveReturn {get; set;}
+        public int RemoveId {get; set;}
         public bool Remove(int id)
         {
-            if(!(GetUser is null) && GetUser.Id == id) return true;
-            return false;
+            RemoveId = id;
+            return RemoveReturn;
         }
 
         public User? SavedUser {get; set;}
