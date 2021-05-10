@@ -40,24 +40,6 @@ jobs:
       working-directory: ./SecretSanta/test/SecretSanta.Web.Tests/
       run: dotnet restore
       
-    - name: Restore API Project
-      working-directory: ./SecretSanta/src/SecretSanta.Api/
-      run: dotnet restore
-      
-    - name: Restore API Tests Project
-      working-directory: ./SecretSanta/test/SecretSanta.Api.Tests/
-      run: dotnet restore
-      
-    - name: Build API Project
-      working-directory: ./SecretSanta/src/SecretSanta.Api/
-      run: dotnet build --no-restore --configuration Release
-
-    - name: Publish API Project
-      working-directory: ./SecretSanta/src/SecretSanta.Api/
-      run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/SecretSantaApi
-      
-
-      
     - name: Build Web Project
       working-directory: ./SecretSanta/src/SecretSanta.Web/
       run: dotnet build --no-restore --configuration Release
@@ -72,5 +54,5 @@ jobs:
         app-name: MeguminXIII
         slot-name: Production
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DA6173A656CF48559B81F48DE0CBB9F8 }}
-        package: ${{env.DOTNET_ROOT}}/myapp
+        package: ${{env.DOTNET_ROOT}}/SecretSantaServer
 
