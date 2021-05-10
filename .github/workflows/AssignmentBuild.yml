@@ -39,7 +39,7 @@ jobs:
       run: dotnet test --no-build --verbosity normal
       
     - name: Build Api
-      working-directory: ./src/SecretSanta.Api/
+      working-directory: ./SecretSanta/src/SecretSanta.Api/
       run: dotnet build --no-restore
       
     - name: Test Api
