@@ -1,4 +1,4 @@
 ﻿
 # Assignment 6
 
-![](../../workflows/AssignmentBuild.yml/badge.svg)
+![](../workflows/AssignmentBuild.yml/badge.svg)
