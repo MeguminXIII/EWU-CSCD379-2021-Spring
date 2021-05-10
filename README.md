@@ -11,6 +11,5 @@ Deployment:
 
 Webstite:
 http://meguminxiii.azurewebsites.net/ 
-[![Website http://meguminxiii.azurewebsites.net/ ]
-(https://img.shields.io/website-up-down-green-red/https/meguminxiii.azurewebsites.net.svg)](http://meguminxiii.azurewebsites.net/)
+[![Website http://meguminxiii.azurewebsites.net/ ](https://img.shields.io/website-up-down-green-red/https/meguminxiii.azurewebsites.net.svg)](http://meguminxiii.azurewebsites.net/)
 
