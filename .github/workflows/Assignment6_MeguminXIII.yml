@@ -24,6 +24,32 @@ jobs:
     - name: Get Directory
       run: pwd
       
+    - name: Restore Web Project
+      working-directory: ./SecretSanta/src/SecretSanta.Web/
+      run: dotnet restore
+      
+    - name: Restore API Project
+      working-directory: ./SecretSanta/src/SecretSanta.Api/
+      run: dotnet restore
+      
+    - name: Restore Web Tests Project
+      working-directory: ./SecretSanta/test/SecretSanta.Web.Tests/
+      run: dotnet restore
+      
+    - name: Restore API Tests Project
+      working-directory: ./SecretSanta/test/SecretSanta.Api.Tests/
+      run: dotnet restore
+      
+      
+    - name: Build API Project
+      working-directory: ./SecretSanta/src/SecretSanta.Api/
+      run: dotnet build --no-restore --configuration Release
+
+    - name: Publish API Project
+      working-directory: ./SecretSanta/src/SecretSanta.Api/
+      run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/SecretSantaServerAPI
+      
+
     - name: npm install
       working-directory: ./SecretSanta/src/SecretSanta.Web/
       run: npm install
@@ -32,14 +58,7 @@ jobs:
       working-directory: ./SecretSanta/src/SecretSanta.Web/
       run: npm run build:prod
       
-    - name: Restore Web Project
-      working-directory: ./SecretSanta/src/SecretSanta.Web/
-      run: dotnet restore
-      
-    - name: Restore Web Tests Project
-      working-directory: ./SecretSanta/test/SecretSanta.Web.Tests/
-      run: dotnet restore
-      
+
     - name: Build Web Project
       working-directory: ./SecretSanta/src/SecretSanta.Web/
       run: dotnet build --no-restore --configuration Release
@@ -47,8 +66,17 @@ jobs:
     - name: Publish Web Project
       working-directory: ./SecretSanta/src/SecretSanta.Web/
       run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/SecretSantaServer
+      
 
-    - name: Run Azure webapp deploy action using publish profile credentials
+    - name: API Deploy
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: MeguminXIII-api
+        slot-name: Production
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D07710C29834446BA4014F014E7F64F8 }}
+        package: ${{env.DOTNET_ROOT}}/SecretSantaServerAPI
+
+    - name: WEB Deploy
       uses: azure/webapps-deploy@v2
       with:
         app-name: MeguminXIII
