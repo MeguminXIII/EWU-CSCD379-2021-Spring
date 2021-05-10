@@ -35,14 +35,15 @@ jobs:
       run: dotnet build --no-restore
       
     - name: Test Web
+      working-directory: ./SecretSanta/test/SecretSanta.Web.Tests/
       run: dotnet test --no-build --verbosity normal
       
     - name: Build Api
-      working-directory: ./SecretSanta/SecretSanta.Api/
+      working-directory: ./src/SecretSanta.Api/
       run: dotnet build --no-restore
       
     - name: Test Api
-      working-directory: ./SecretSanta/src/SecretSanta.Api/
+      working-directory: ./SecretSanta/test/SecretSanta.Api.Tests/
       run: dotnet test --no-build --verbosity normal
       
     - name: Verify Build Badge
