@@ -24,6 +24,14 @@ jobs:
     - name: Get Directory
       run: pwd
       
+    - name: npm install
+      working-directory: ./SecretSanta/src/SecretSanta.Web/
+      run: npm install
+    
+    - name: npm build
+      working-directory: ./SecretSanta/src/SecretSanta.Web/
+      run: npm run build:prod
+      
     - name: Restore Web Project
       working-directory: ./SecretSanta/src/SecretSanta.Web/
       run: dotnet restore
@@ -48,13 +56,7 @@ jobs:
       working-directory: ./SecretSanta/src/SecretSanta.Api/
       run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/SecretSantaApi
       
-    - name: npm install
-      working-directory: ./SecretSanta/src/SecretSanta.Web/
-      run: npm install
-    
-    - name: npm build
-      working-directory: ./SecretSanta/src/SecretSanta.Web/
-      run: npm run build:prod
+
       
     - name: Build Web Project
       working-directory: ./SecretSanta/src/SecretSanta.Web/
