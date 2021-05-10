@@ -1,0 +1,76 @@
+# Docs for the Azure Web Apps Deploy action: https://go.microsoft.com/fwlink/?linkid=2134798
+# More GitHub Actions for Azure: https://go.microsoft.com/fwlink/?linkid=2135048
+
+name: Deployment
+
+on:
+  push:
+    branches: [ Assignment* ]
+
+jobs:
+  build:
+    defaults:
+      run:
+        working-directory: ./SecretSanta/
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Get Directory
+      run: pwd
+      
+    - name: npm install
+      working-directory: ./SecretSanta/src/SecretSanta.Web/
+      run: npm install
+    
+    - name: npm build
+      working-directory: ./SecretSanta/src/SecretSanta.Web/
+      run: npm run build:prod
+      
+    - name: Restore Web Project
+      working-directory: ./SecretSanta/src/SecretSanta.Web/
+      run: dotnet restore
+      
+    - name: Restore Web Tests Project
+      working-directory: ./SecretSanta/test/SecretSanta.Web.Tests/
+      run: dotnet restore
+      
+    - name: Restore API Project
+      working-directory: ./SecretSanta/src/SecretSanta.Api/
+      run: dotnet restore
+      
+    - name: Restore API Tests Project
+      working-directory: ./SecretSanta/test/SecretSanta.Api.Tests/
+      run: dotnet restore
+      
+    - name: Build API Project
+      working-directory: ./SecretSanta/src/SecretSanta.Api/
+      run: dotnet build --no-restore --configuration Release
+
+    - name: Publish API Project
+      working-directory: ./SecretSanta/src/SecretSanta.Api/
+      run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/SecretSantaApi
+      
+
+      
+    - name: Build Web Project
+      working-directory: ./SecretSanta/src/SecretSanta.Web/
+      run: dotnet build --no-restore --configuration Release
+
+    - name: Publish Web Project
+      working-directory: ./SecretSanta/src/SecretSanta.Web/
+      run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/SecretSantaServer
+
+    - name: Run Azure webapp deploy action using publish profile credentials
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: MeguminXIII
+        slot-name: Production
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DA6173A656CF48559B81F48DE0CBB9F8 }}
+        package: ${{env.DOTNET_ROOT}}/myapp
+
