@@ -56,8 +56,6 @@ jobs:
       working-directory: ./SecretSanta/src/SecretSanta.Api/
       run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/SecretSantaApi
       
-
-      
     - name: Build Web Project
       working-directory: ./SecretSanta/src/SecretSanta.Web/
       run: dotnet build --no-restore --configuration Release
