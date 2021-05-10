@@ -54,5 +54,5 @@ jobs:
         app-name: MeguminXIII
         slot-name: Production
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DA6173A656CF48559B81F48DE0CBB9F8 }}
-        package: ${{env.DOTNET_ROOT}}/myapp
+        package: ${{env.DOTNET_ROOT}}/Web
 
