@@ -69,7 +69,7 @@ namespace SecretSanta.Business
 
             List<User> userList = MockData.Groups[id].Users;
 
-            if(userList.Count < 3) return AssignmentResult.Error("Groups must ahve at least 3 users");
+            if(userList.Count < 3) return AssignmentResult.Error("Groups must have at least 3 users");
 
             Shuffle(userList);
 
