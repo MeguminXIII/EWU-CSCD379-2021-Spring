@@ -10,5 +10,7 @@ namespace UserGroup.Data
         {
             return $"{Id} {FirstName} {LastName}";
         }
+
+        public int Age {get; set;}
     }
 }
