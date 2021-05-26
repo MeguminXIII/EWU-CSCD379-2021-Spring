@@ -189,6 +189,28 @@ export function createOrUpdateGroup() {
                 console.log(error);
             }
             await this.loadGroup();
+        },
+        async getAssignment(user: User){
+            var assignment = "User assigned not found";
+
+            if(this.group.assignments.length == 0){
+                return assignment;
+            }
+            else{
+                try{
+                    for(var i = 0;i < this.group.assignments.length;i++)
+                    {
+                        if(this.group.assignments[i].giver?.id == user.id){
+                            assignment = `${this.group.assignments[i].receiver?.firstName} ${this.group.assignments[i].receiver?.firstName}`
+                        }
+                    }
+                } catch(error)
+                {
+                    this.generationError = error;
+                    console.log(error);
+                }
+                return assignment;
+            }
         }
     }
 }
