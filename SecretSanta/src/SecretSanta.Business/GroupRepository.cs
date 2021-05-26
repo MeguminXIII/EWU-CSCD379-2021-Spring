@@ -47,6 +47,7 @@ namespace SecretSanta.Business
         }
 
         //list shuffle from stack overflow
+        //link here: https://stackoverflow.com/questions/273313/randomize-a-listt
         private void Shuffle<T>(IList<T> list)
         {
             Random rand = new Random();
@@ -69,7 +70,7 @@ namespace SecretSanta.Business
 
             List<User> userList = MockData.Groups[id].Users;
 
-            if(userList.Count < 3) return AssignmentResult.Error("Groups must have at least 3 users");
+            if(userList.Count < 3) return AssignmentResult.Error("Group Group must have at least three users");
 
             Shuffle(userList);
 

@@ -111,7 +111,7 @@ namespace SecretSanta.Api.Controllers
             return NotFound();
         }
 
-        [HttpPost("{id}/assign")]
+        [HttpPut("{id}/assign")]
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult Assign(int id)
