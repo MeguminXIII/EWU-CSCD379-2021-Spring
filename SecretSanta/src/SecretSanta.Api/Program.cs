@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using SecretSanta.Business;
 
 namespace SecretSanta.Api
 {
@@ -7,6 +8,10 @@ namespace SecretSanta.Api
     {
         public static void Main(string[] args)
         {
+            if(args[0].Equals("DeploySampleData")){
+                SampleData.Seed();
+            }
+            
             CreateHostBuilder(args).Build().Run();
         }
 

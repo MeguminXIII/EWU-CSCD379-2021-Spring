@@ -10,7 +10,7 @@ namespace SecretSanta.Api.Dto
         public List<User> Users { get; } = new();
         public List<Assignment> Assignments { get; } = new();
 
-        public static Group? ToDto(Data.Group? group, bool includeChildObjects = false)
+        public static Group? ToDto(Data.Group? group, bool includeChildObjects = true)
         {
             if (group is null) return null;
             var rv = new Group
