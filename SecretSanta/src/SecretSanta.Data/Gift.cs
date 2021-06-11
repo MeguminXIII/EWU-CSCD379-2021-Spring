@@ -14,6 +14,7 @@ namespace SecretSanta.Data
         public string? Url {get; set;} = "";
         public int Id {get; set;}
         public int Priority {get; set;}
+        public int ReceiverId {get; set;}
 
     }
 }
