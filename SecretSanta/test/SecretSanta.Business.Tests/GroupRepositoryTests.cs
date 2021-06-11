@@ -70,9 +70,10 @@ namespace SecretSanta.Business.Tests
             });
 
             ICollection<Group> users = sut.List();
+            using DbContext dbContext = new DbContext();
 
-            Assert.AreEqual(MockData.Groups.Count, users.Count);
-            foreach(var mockGroup in MockData.Groups.Values)
+            Assert.AreEqual(dbContext.Groups.Count(), users.Count);
+            foreach(var mockGroup in dbContext.Groups)
             {
                 Assert.IsNotNull(users.SingleOrDefault(x => x.Name == mockGroup.Name));
             }

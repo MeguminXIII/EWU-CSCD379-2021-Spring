@@ -73,9 +73,10 @@ namespace SecretSanta.Business.Tests
             });
 
             ICollection<User> users = sut.List();
+            using DbContext dbContext = new DbContext();
 
-            Assert.AreEqual(MockData.Users.Count, users.Count);
-            foreach(var mockUser in MockData.Users.Values)
+            Assert.AreEqual(dbContext.Users.Count(), users.Count);
+            foreach(var mockUser in dbContext.Users)
             {
                 Assert.IsNotNull(users.SingleOrDefault(x => x.FirstName == mockUser.FirstName && x.LastName == mockUser.LastName));
             }
